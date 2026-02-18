@@ -1,0 +1,42 @@
+PROXMOX SETUP NOTES - 18/2/2026
+
+What I did:
+1. Finally decided to fix the apt update
+2. Got 401 Unauthorized errors for enterprise repos
+
+What I learned:
+- Proxmox defaults to enterprise repos that need a subscription
+- For home lab, I need to switch to no-subscription repo
+- The error messages pointed to https://enterprise.proxmox.com
+
+Commands I ran:
+apt update  (this failed)
+
+Files I checked:
+ls -la /etc/apt/sources.list.d/
+cat /etc/apt/sources.list.d/pve-enterprise.sources
+
+How I fixed it:
+1. nano /etc/apt/sources.list.d/pve-enterprise.sources
+   - Added # to comment out all lines
+
+2. nano /etc/apt/sources.list.d/ceph.sources  
+   - Added # to comment out all lines
+
+3. Created new file: nano /etc/apt/sources.list.d/pve-no-subscription.sources
+   - Added:
+     Types: deb
+     URIs: http://download.proxmox.com/debian/pve
+     Suites: trixie
+     Components: pve-no-subscription
+
+4. Ran 'apt update' again - SUCCESS! No more errors.
+
+Current status:
+- apt update works
+- 40 packages can be upgraded
+- Ready to create LXC container
+
+Next steps:
+1. Run 'apt upgrade' to update packages
+2. Create Ubuntu container for NotebookLM

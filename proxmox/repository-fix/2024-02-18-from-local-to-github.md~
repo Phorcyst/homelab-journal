@@ -1,0 +1,29 @@
+# Moving Local Documentation to GitHub
+
+**Date:** 18/02/2026
+**Tags:** github, documentation, workflow
+
+## The Journey So Far
+
+### Phase 1: Local Documentation (What I Already Did)
+Earlier, I created local documentation files to track my progress:
+~/documentations
+# Created local notes directory
+mkdir -p ~/documentation/proxmox
+mkdir -p ~/documentation/troubleshooting
+
+# Wrote down the repository fix steps while troubleshooting
+nano ~/proxmox-setup-notes.txt
+nano ~/documentation/troubleshooting/401-unauthorized-error.txt
+
+### Phase 2: Setting Up GitHub (Today)
+
+Now I'm moving those local notes to GitHub for better organization and portfolio value:
+
+#Created GitHub repository: homeLab-journal
+
+#Set up SSH key for authentication
+
+#Cloned the repository to my Proxmox server
+
+#Now organizing my local notes into this structure
